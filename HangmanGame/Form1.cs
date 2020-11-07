@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
+using System.Media;
 
 namespace HangmanGame
 {
     public partial class Form1_start : Form
     {
+        public Player playerName;
         private GameBoard gameBoard;
         public Form1_start()
         {
@@ -21,7 +24,9 @@ namespace HangmanGame
 
         private void Form1_start_Load(object sender, EventArgs e)
         {
-            
+            WindowsMediaPlayer wPlayer = new WindowsMediaPlayer();
+            wPlayer.URL = @"C:\Users\fredr\source\repos\HangmanLib\HangmanGame\Resources\Cuckoo's Nest - Nat Keefe & Hot Buttered Rum.mp3";
+            wPlayer.controls.play();
         }
 
         private void textBox_UserNameInput_Click(object sender, EventArgs e)
@@ -33,7 +38,8 @@ namespace HangmanGame
         {
             if(textBox_UserNameInput.Text.Length > 1)
             {
-                Player PlayerName = new Player(textBox_UserNameInput.Text);
+                string playersname = textBox_UserNameInput.Text;
+                playerName = new Player(playersname);
                 gameBoard = new GameBoard();
                 Controls.Add(gameBoard);
                 gameBoard.Dock = DockStyle.Fill;
