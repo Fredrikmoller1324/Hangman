@@ -55,6 +55,7 @@
             this.textBox_UserNameInput.Text = "Enter a Name";
             this.textBox_UserNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox_UserNameInput.Click += new System.EventHandler(this.textBox_UserNameInput_Click);
+            this.textBox_UserNameInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_UserNameInput_KeyDown);
             // 
             // button_PlayGame
             // 

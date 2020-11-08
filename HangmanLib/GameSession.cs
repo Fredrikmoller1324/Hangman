@@ -10,11 +10,17 @@ namespace HangmanLib
 
         public List<string> AddGameWords()
         {
-            gameWords.Add("Car".ToUpper());
-            //gameWords.Add("pilot".ToUpper());
-            //gameWords.Add("boll".ToUpper());
-            //gameWords.Add("korv".ToUpper());
-            //gameWords.Add("mus".ToUpper());
+            gameWords.Add("car".ToUpper());
+            gameWords.Add("pilot".ToUpper());
+            gameWords.Add("ball".ToUpper());
+            gameWords.Add("weiner".ToUpper());
+            gameWords.Add("mouse".ToUpper());
+            gameWords.Add("dog".ToUpper());
+            gameWords.Add("ape".ToUpper());
+            gameWords.Add("mustard".ToUpper());
+            gameWords.Add("computerengineer".ToUpper());
+            gameWords.Add("xenotransplantation".ToUpper());
+
             return gameWords;
         }
     }

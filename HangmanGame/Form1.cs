@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
 using System.Media;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
 
 namespace HangmanGame
 {
@@ -25,18 +28,23 @@ namespace HangmanGame
         private void Form1_start_Load(object sender, EventArgs e)
         {
             WindowsMediaPlayer wPlayer = new WindowsMediaPlayer();
-            wPlayer.URL = @"C:\Users\fredr\source\repos\HangmanLib\HangmanGame\Resources\Cuckoo's Nest - Nat Keefe & Hot Buttered Rum.mp3";
+            // tar ut pathway till project som behöver kombineras för att få ut resourcesmappen där låten är lagrad
+            string projectpath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string UrlMusic = Path.Combine(projectpath, "Resources\\Cuckoo's Nest - Nat Keefe & Hot Buttered Rum.mp3");
+            wPlayer.URL = UrlMusic;
+            
             wPlayer.controls.play();
+            wPlayer.settings.setMode("loop", true);
+            wPlayer.settings.volume = 2;
         }
 
         private void textBox_UserNameInput_Click(object sender, EventArgs e)
         {
             textBox_UserNameInput.Clear();
         }
-
-        private void button_PlayGame_Click(object sender, EventArgs e)
+        private void StartGameSession()
         {
-            if(textBox_UserNameInput.Text.Length > 1)
+            if (textBox_UserNameInput.Text.Length > 1)
             {
                 string playersname = textBox_UserNameInput.Text;
                 playerName = new Player(playersname);
@@ -48,8 +56,18 @@ namespace HangmanGame
             }
             else
             {
-                MessageBox.Show("Yuor name needs to be longer than 1 letter!", "Wrong Input");
+                MessageBox.Show("Your name needs to be longer than 1 letter!", "Wrong Input");
             }
+        }
+
+        private void button_PlayGame_Click(object sender, EventArgs e)
+        {
+            StartGameSession();
+        }
+
+        private void textBox_UserNameInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) { StartGameSession(); e.SuppressKeyPress = true; }
         }
     }
 }
