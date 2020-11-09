@@ -18,6 +18,7 @@ namespace HangmanGame
 {
     public partial class Form1_start : Form
     {
+        WindowsMediaPlayer wPlayer = new WindowsMediaPlayer();
         public Player playerName;
         private GameBoard gameBoard;
         public Form1_start()
@@ -27,7 +28,6 @@ namespace HangmanGame
 
         private void Form1_start_Load(object sender, EventArgs e)
         {
-            WindowsMediaPlayer wPlayer = new WindowsMediaPlayer();
             // tar ut pathway till project som behöver kombineras för att få ut resourcesmappen där låten är lagrad
             string projectpath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             string UrlMusic = Path.Combine(projectpath, "Resources\\Cuckoo's Nest - Nat Keefe & Hot Buttered Rum.mp3");
@@ -36,6 +36,7 @@ namespace HangmanGame
             wPlayer.controls.play();
             wPlayer.settings.setMode("loop", true);
             wPlayer.settings.volume = 2;
+
         }
 
         private void textBox_UserNameInput_Click(object sender, EventArgs e)
@@ -68,6 +69,12 @@ namespace HangmanGame
         private void textBox_UserNameInput_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter) { StartGameSession(); e.SuppressKeyPress = true; }
+        }
+
+        private void button_muteMusic_Click(object sender, EventArgs e)
+        {
+            if (wPlayer.settings.volume > 0) { wPlayer.settings.volume = 0; }
+            else { wPlayer.settings.volume = 2; }
         }
     }
 }

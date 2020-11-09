@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1_start));
             this.label_WelcomeToGame = new System.Windows.Forms.Label();
             this.textBox_UserNameInput = new System.Windows.Forms.TextBox();
             this.button_PlayGame = new System.Windows.Forms.Button();
+            this.button_muteMusic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_WelcomeToGame
@@ -67,12 +69,23 @@
             this.button_PlayGame.UseVisualStyleBackColor = true;
             this.button_PlayGame.Click += new System.EventHandler(this.button_PlayGame_Click);
             // 
+            // button_muteMusic
+            // 
+            this.button_muteMusic.Image = ((System.Drawing.Image)(resources.GetObject("button_muteMusic.Image")));
+            this.button_muteMusic.Location = new System.Drawing.Point(701, 372);
+            this.button_muteMusic.Name = "button_muteMusic";
+            this.button_muteMusic.Size = new System.Drawing.Size(87, 66);
+            this.button_muteMusic.TabIndex = 3;
+            this.button_muteMusic.UseVisualStyleBackColor = true;
+            this.button_muteMusic.Click += new System.EventHandler(this.button_muteMusic_Click);
+            // 
             // Form1_start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_muteMusic);
             this.Controls.Add(this.button_PlayGame);
             this.Controls.Add(this.textBox_UserNameInput);
             this.Controls.Add(this.label_WelcomeToGame);
@@ -92,6 +105,7 @@
         private System.Windows.Forms.Label label_WelcomeToGame;
         private System.Windows.Forms.TextBox textBox_UserNameInput;
         private System.Windows.Forms.Button button_PlayGame;
+        private System.Windows.Forms.Button button_muteMusic;
     }
 }
 
