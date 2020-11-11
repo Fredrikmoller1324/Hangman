@@ -10,6 +10,7 @@ namespace HangmanGame
     {
         GameSession gameSession;
         public string GameWord { get; set; }
+        int WrongUniqueGuesses = 0;
         public GameBoard()
         {
             InitializeComponent();
@@ -33,6 +34,8 @@ namespace HangmanGame
                 label_MaskedWord.Text += "*";
             }
 
+            label_MaskedWord.Font = new Font("Arial", 12);
+
         }
 
         private void textBox_UserGuesses_KeyDown(object sender, KeyEventArgs e)
@@ -48,6 +51,11 @@ namespace HangmanGame
                     }
                     else
                     {
+                        WrongUniqueGuesses++;
+                        if(WrongUniqueGuesses == 5)
+                        {
+                            MessageBox.Show("You lost");
+                        }
                         label_AlreadyGuessed.Visible = false;
                         label_wrongGuessedLetters.Text += $"{textBox_UserGuesses.Text.ToUpper()} ";
                         textBox_UserGuesses.Clear();
@@ -99,10 +107,6 @@ namespace HangmanGame
                         victoryScreen.Dock = DockStyle.Fill;
                         victoryScreen.BackColor = Color.AntiqueWhite;
                     }
-
-
-
-
                 }
                 e.SuppressKeyPress = true;
 

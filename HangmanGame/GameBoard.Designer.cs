@@ -32,6 +32,7 @@
             this.textBox_UserGuesses = new System.Windows.Forms.TextBox();
             this.label_wrongGuessedLetters = new System.Windows.Forms.Label();
             this.label_AlreadyGuessed = new System.Windows.Forms.Label();
+            this.label_WrongguessedLettersMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_MaskedWord
@@ -56,10 +57,11 @@
             // 
             this.label_wrongGuessedLetters.AutoSize = true;
             this.label_wrongGuessedLetters.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.label_wrongGuessedLetters.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_wrongGuessedLetters.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label_wrongGuessedLetters.Location = new System.Drawing.Point(322, 249);
+            this.label_wrongGuessedLetters.Location = new System.Drawing.Point(263, 286);
             this.label_wrongGuessedLetters.Name = "label_wrongGuessedLetters";
-            this.label_wrongGuessedLetters.Size = new System.Drawing.Size(169, 15);
+            this.label_wrongGuessedLetters.Size = new System.Drawing.Size(227, 21);
             this.label_wrongGuessedLetters.TabIndex = 2;
             this.label_wrongGuessedLetters.Text = "Displays wrong Guessed letters";
             // 
@@ -73,11 +75,24 @@
             this.label_AlreadyGuessed.TabIndex = 3;
             this.label_AlreadyGuessed.Text = "alreadyGuessedLetters";
             // 
+            // label_WrongguessedLettersMessage
+            // 
+            this.label_WrongguessedLettersMessage.AutoSize = true;
+            this.label_WrongguessedLettersMessage.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.label_WrongguessedLettersMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_WrongguessedLettersMessage.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label_WrongguessedLettersMessage.Location = new System.Drawing.Point(306, 250);
+            this.label_WrongguessedLettersMessage.Name = "label_WrongguessedLettersMessage";
+            this.label_WrongguessedLettersMessage.Size = new System.Drawing.Size(162, 21);
+            this.label_WrongguessedLettersMessage.TabIndex = 4;
+            this.label_WrongguessedLettersMessage.Text = "Wrong guessed letter:";
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.Controls.Add(this.label_WrongguessedLettersMessage);
             this.Controls.Add(this.label_AlreadyGuessed);
             this.Controls.Add(this.label_wrongGuessedLetters);
             this.Controls.Add(this.textBox_UserGuesses);
@@ -96,5 +111,6 @@
         private System.Windows.Forms.TextBox textBox_UserGuesses;
         private System.Windows.Forms.Label label_wrongGuessedLetters;
         private System.Windows.Forms.Label label_AlreadyGuessed;
+        private System.Windows.Forms.Label label_WrongguessedLettersMessage;
     }
 }
